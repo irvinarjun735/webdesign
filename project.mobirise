@@ -1,6 +1,6 @@
 {
   "settings": {
-    "name": "blank template 1 (SmartM5 theme)",
+    "name": "blank template 1 (SmartM5 theme)-clone",
     "currentPage": "index.html",
     "theme": {
       "name": "startm5",
@@ -54,7 +54,7 @@
     "siteUrl": false,
     "cookiesAlert": false,
     "gdpr": false,
-    "uniqCompNum": 20,
+    "uniqCompNum": 23,
     "versionPublish": "5.9.4",
     "screenshot": "screenshot.png"
   },
@@ -486,18 +486,17 @@
           "_params": {}
         },
         {
-          "_name": "header1",
-          "_sourceTheme": "mobirise5",
+          "alias": false,
           "_styles": {
             "& when not (@fullScreen)": {
               "padding-top": "(@paddingTop * 1rem)",
               "padding-bottom": "(@paddingBottom * 1rem)"
             },
-            "& when (@bg-type = 'image')": {
-              "background-image": "url(@bg-value)"
-            },
             "& when (@bg-type = 'color')": {
               "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
             },
             ".mbr-fallback-image.disabled": {
               "display": "none"
@@ -513,14 +512,44 @@
               "& when (@bg-type = 'video')": {
                 "background-image": "url(@fallBackImage)"
               }
+            },
+            "@media (max-width: 991px)": {
+              ".image-wrapper": {
+                "margin-bottom": "1rem"
+              }
+            },
+            "& when (@reverseContent)": {
+              ".row": {
+                "flex-direction": "row-reverse"
+              }
+            },
+            ".row": {
+              "align-items": "center"
+            },
+            ".image-wrapper": {
+              "@media (max-width: 991px)": {
+                "padding": "1rem"
+              }
+            },
+            ".text-wrapper": {
+              "@media (min-width: 992px)": {
+                "padding": "0 2rem"
+              }
+            },
+            ".mbr-section-title": {
+              "color": "#000000"
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "color": "#232323"
             }
           },
-          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header1\" group=\"Headers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\" checked>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n\n        <input type=\"range\" inline name=\"textWidth\" title=\"Width\" min=\"4\" max=\"12\" value=\"5\" step=\"1\">\n        <select title=\"Align\" name=\"contentAlign\">\n            <option value selected>Left</option>\n            <option value=\"justify-content-center\">Center</option>\n            <option value=\"justify-content-end\">Right</option>\n        </select>\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubitle\" checked>\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\">\n        <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n        <header>Background\n        </header>\n       \n        <fieldset type=\"background\" name=\"bg\" parallax>\n                \n            <input type=\"image\" title=\"Image\" value=\"https://lh3.googleusercontent.com/geougc/AF1QipPZdDeQaVC4fEKkhsjroOkFkTik2-NBxfU9m58C=h600-no\">\n            <input type=\"color\" title=\"Color\" value=\"#bbbbbb\" selected>\n            <input type=\"video\" title=\"Video\" value=\"INSERT VIDEO 1\">\n          <div>\n\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#777\" width=\"200\" height=\"200\"><path d=\"M6.1 8.7L2.8 12l3.3 3.3-1.4 1.4L0 12l4.7-4.7 1.4 1.4zm13.2-1.4l-1.4 1.4 3.3 3.3-3.3 3.3 1.4 1.4L24 12l-4.7-4.7zM8.1 18.6l1.8.8 6-14-1.8-.8-6 14z\"></path></svg>\n    <p class=\"display-3\">Click to Open Code Editor</p>\n</div>\n            \n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value=\"@PROJECT_PATH@/assets/images/background13-1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#fafafa\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.1\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div class mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row {{contentAlign}}\">\n            <div class=\"col-12 col-lg-{{textWidth}}\">\n                <h1 class=\"mbr-section-title mbr-fonts-style mb-3\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\"><b>Web Design</b><br><b>In Fremont</b></h1>\n                <h2 class=\"mbr-section-subtitle mbr-fonts-style mb-3\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-2\" mbr-if=\"showSubitle\">\n                    <div>\n  \n<iframe src=\"INSERT IMAGE 1\" style=\"border:0px #ffffff none;\" name=\"myiFrame\" scrolling=\"no\" frameborder=\"1\" marginheight=\"0px\" marginwidth=\"0px\" height=\"400px\" width=\"600px\" allowfullscreen></iframe>\n\n</div>\n                                        </h2>\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">INSERT TEXT 1</p>\n                <div mbr-buttons mbr-theme-style=\"display-4\" class=\"mbr-section-btn mt-3\" mbr-if=\"showButtons\"><a class=\"btn btn-secondary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">Create Website</a></div>\n            </div>\n        </div>\n    </div>\n</section>",
-          "_JSplaceholders": [],
+          "_name": "header01",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header1\" group=\"Headers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n\t<mbr-parameters>\n\t\t<header>Size</header>\n\t\t<input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n\t\t<input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n\t\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n\t\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n\t\t<input type=\"range\" inline name=\"imageWidth\" title=\"Image\" min=\"4\" max=\"8\" step=\"1\" value=\"8\">\n\t\t<input type=\"checkbox\" title=\"Reverse\" name=\"reverseContent\" checked>\n\t\t<header>Show/Hide</header>\n\t\t<input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n\t\t<input type=\"checkbox\" title=\"Text\" name=\"showText\">\n\t\t<input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n\t\t<header>Background</header>\n\t\t<fieldset type=\"background\" name=\"bg\" parallax>\n\t\t\t<input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n\t\t\t<input type=\"color\" title=\"Color\" value=\"#edefeb\" selected>\n\t\t\t<input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n\t\t</fieldset>\n\t\t<header condition=\"bg.type === 'video'\">Fallback Image</header>\n\t\t<input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n\t\t<input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n\t\t<input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n\t\t<input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\">\n\t</mbr-parameters>\n\n\t<div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n\t<div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n\t<div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n\t\t<div class=\"row justify-content-center\">\n\t\t\t<div class=\"col-12 col-md-12 col-lg-{{imageWidth}} image-wrapper\">\n\t\t\t\t<img class=\"w-100\" src=\"https://lh3.googleusercontent.com/p/AF1QipM8Ht0c_ffnKc1dBh-0qHKSuEAfu7eKEv2gzlft=s680-w680-h510\" alt=\"Mobirise Website Builder\">\n\t\t\t</div>\n\t\t\t<div class=\"col-12 col-lg col-md-12\">\n\t\t\t\t<div class=\"text-wrapper align-left\">\n\t\t\t\t\t<h1 class=\"mbr-section-title mbr-fonts-style mb-4\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\">\n\t\t\t\t\t\t<b>Web Design Fremont</b></h1>\n\t\t\t\t\t<p class=\"mbr-text mbr-fonts-style mb-4\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n\t\t\t\t\t\tCreate awesome websites on your computer! No code &amp; free. Publish anywhere.\n\t\t\t\t\t</p>\n\t\t\t\t\t<div mbr-buttons mbr-theme-style=\"display-7\" class=\"mbr-section-btn mt-3\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\">\n\t\t\t\t\t\t<a class=\"btn btn-danger\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">Get started</a>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>",
+          "_cid": "tP9Ovlwxj2",
+          "_anchor": "header01-l",
           "_PHPplaceholders": [],
-          "_anchor": "header1-1",
-          "_isUserblock": true,
-          "_cid": "tNFJ2tihMg",
+          "_JSplaceholders": [],
           "_protectedParams": [],
           "_global": false,
           "_once": false,
@@ -533,62 +562,59 @@
               "padding-top": "(@paddingTop * 1rem)",
               "padding-bottom": "(@paddingBottom * 1rem)"
             },
-            "& when (@bg-type = 'color')": {
+            "& when (@bg-type = \"color\")": {
               "background-color": "@bg-value"
             },
-            "& when (@bg-type = 'image')": {
+            "& when (@bg-type = \"image\")": {
               "background-image": "url(@bg-value)"
             },
-            ".card-heading": {
-              "padding-top": "16px",
-              "padding-bottom": "8px",
-              "color": "#012b3a"
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
             },
-            ".p, .mbr-text": {
-              "color": "#012b3a"
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
             },
-            ".row": {
-              "justify-content": "center"
+            ".card-wrapper": {
+              "background": "@wrapBgColor",
+              "@media (max-width: 767px)": {
+                "padding": "1.5rem"
+              },
+              "@media (min-width: 768px)": {
+                "padding": "2.25rem"
+              }
             },
-            "a": {
-              "font-weight": "400 !important"
+            ".mbr-text, .mbr-section-btn": {
+              "color": "#000000",
+              "text-align": "left"
             },
-            "a.text-danger:hover": {
-              "color": "#E5BE8A !important"
+            ".card-title, .card-box": {
+              "text-align": "left",
+              "color": "#000000"
             }
           },
           "_name": "article07",
           "_sourceTheme": "startm5",
-          "_customHTML": "<section data-bs-version=\"5.1\" class=\"article07\" group=\"Article\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Width\" name=\"contentWidth\" min=\"6\" max=\"12\" value=\"8\" step=\"1\">\n        <header>Show/Hide</header>\n        <input type=\"range\" title=\"Paragraphs Amount\" name=\"articlesAmount\" min=\"1\" max=\"10\" value=\"3\" step=\"1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Image\" value=\"/addons/socialm5/components/_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#fff8ef\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.3\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div mbr-class=\"{\n            'mbr-fullscreen': fullScreen}\">\n        <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n            <div class=\"row\">\n                <div class=\"col-12 col-md-{{contentWidth}}\">\n                    <div class=\"row\">\n                        <div class=\"col-12\">\n                            <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".mbr-text\">\n                            </p><h2>Fremont Web Design Services</h2><p>In the bustling city of Fremont, where businesses are constantly striving to make their mark in the digital world, the importance of top-notch web design services cannot be overstated. A website serves as the virtual storefront for any modern business, and its design can make or break the online experience for visitors. This is where web design Fremont services come into play.\n<br>\n<br>Web design Fremont services encompass a comprehensive range of tasks, each aimed at creating an online presence that is not only aesthetically pleasing but also highly functional and user-friendly. From crafting visually appealing layouts to ensuring seamless navigation and responsive design, these services cover it all.\n<br>\n<br>When you choose to enlist the expertise of web design Fremont professionals, you're tapping into a wealth of knowledge and experience. These experts are well-versed in the latest web design trends and technologies, ensuring that your website is not only visually engaging but also technologically advanced.\n<br>\n<br>One of the key benefits of investing in web design Fremont services is the ability to tailor your website to the unique needs and preferences of the local market. Fremont has its own distinct characteristics and demographics, and a well-crafted website can help you connect with your target audience more effectively.\n<br>\n<br>Now, let's delve deeper into the various aspects of web design Fremont services:\n<br>\n<br>1. Visual Appeal:\n<br>Web design Fremont professionals understand the significance of aesthetics in web design. They focus on creating visually stunning websites that captivate visitors from the moment they land on your page. A visually appealing website not only leaves a positive impression but also encourages users to explore further.\n<br>\n<br>2. Functionality and User Experience:\n<br>Beyond aesthetics, web design Fremont services prioritize functionality and user experience. Navigating your website should be intuitive and hassle-free. Whether users are browsing on a desktop computer or a mobile device, a well-designed website ensures that they can easily access the information they need.\n<br>\n<br>3. Brand Identity:\n<br>Your website is an extension of your brand, and web design Fremont experts understand the importance of maintaining brand consistency. They work closely with you to ensure that the design elements, color schemes, and typography align with your brand identity, reinforcing your brand's recognition and credibility.\n<br>\n<br>4. SEO Optimization:\n<br>Search engine optimization (SEO) is a critical component of web design Fremont services. Professionals in this field optimize your website for search engines, making it more likely to rank higher in search results. This increased visibility can lead to more organic traffic and potential customers.\n<br>\n<br>5. Mobile Responsiveness:\n<br>With the majority of internet users accessing websites on mobile devices, having a mobile-responsive design is paramount. Web design Fremont services ensure that your website looks and functions flawlessly on smartphones and tablets, providing a seamless user experience across all devices.\n<br>\n<br>In conclusion, web design Fremont services play a pivotal role in helping businesses thrive in the digital age. Whether you're a local startup or an established corporation, investing in professional web design can set you apart from the competition, enhance your online presence, and ultimately drive success.\n<br>\n<br></p>\n                         \n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
-          "_cid": "tNFJnaSGCs",
-          "_anchor": "article07-4",
-          "_PHPplaceholders": [],
-          "_JSplaceholders": [],
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"article07\" group=\"Article\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n  <mbr-parameters>\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline title=\"Content Width\" name=\"contentWidth\" min=\"8\" max=\"12\" step=\"1\" value=\"10\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n    <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n    <input type=\"color\" title=\"Wrap Bg\" name=\"wrapBgColor\" value=\"#ffffff\">\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" parallax>\n      <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\" parallax>\n      <input type=\"color\" title=\"Color\" value=\"#edefeb\" selected>\n      <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n    </fieldset>\n    <header condition=\"bg.type === 'video'\">Fallback Image</header>\n    <input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.3\" condition=\"overlay && bg.type !== 'color'\">\n  </mbr-parameters>\n\n  <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n  <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\"></div>\n  <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n    <div class=\"row justify-content-center\">\n      <div class=\"card col-md-12 col-lg-{{contentWidth}}\">\n        <div class=\"card-wrapper\">\n          <h3 class=\"card-title mbr-fonts-style mbr-white mt-3 mb-4\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".card-title, .card-box\"><b>Creative Web Design Fremont</b></h3>\n          <div class=\"row card-box align-left\">\n            <div class=\"item features-without-image col-12\">\n              <div class=\"item-wrapper\">\n                <h4 class=\"mbr-section-subtitle mbr-fonts-style mb-3\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">\n                  <b>Shipping options</b>\n                </h4>\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Creativity is the heartbeat of effective web design Fremont. In a world where online competition is fierce, having a website that not only stands out but also captures the imagination of visitors is essential. This is precisely what creative web design Fremont is all about.\n<br>\n<br>Creative web design in Fremont goes beyond the basics of layout and functionality. It involves pushing the boundaries of design to deliver websites that are not just visually appealing but also innovative and memorable. Creative designers excel in using cutting-edge techniques, eye-catching graphics, interactive elements, and unconventional navigation to create websites that leave a lasting impression.\n<br>\n<br>When you opt for creative web design Fremont services, you're choosing a team of professionals who are passionate about design. They're not content with the ordinary; they strive to create extraordinary online experiences that resonate with your audience.\n<br>\n<br><b>Here are some key elements of creative web design Fremont:\n<br>\n<br>1. Unique Visuals:\n</b><br>Creative designers employ unique visuals that set your website apart. Whether it's custom illustrations, animations, or stunning photography, these elements are carefully chosen to convey your brand's personality and message.\n<br>\n<br><b>2. Storytelling:\n</b><br>Creative web design is all about storytelling. It's about using design elements to tell a compelling narrative that engages visitors and keeps them exploring your site. Through imagery, typography, and color schemes, your website's design should evoke emotions and convey your brand's story effectively.\n<br>\n<br><b>3. User Engagement:\n</b><br>Creative web design Fremont prioritizes user engagement. A creatively designed website encourages visitors to stay longer, interact with your content, and take desired actions, such as signing up for a newsletter or making a purchase. It transforms passive browsing into active participation.\n<br>\n<br><b>4. Memorable Experiences:\n</b><br>One of the primary goals of creative web design is to create memorable online experiences. These experiences leave a lasting impression on visitors, making them more likely to return to your website and recommend it to others.\n<br>\n<b><br>5. Competitive Advantage:\n</b><br>In a crowded digital landscape, a creatively designed website can be a powerful competitive advantage. It distinguishes your brand, instills trust, and positions your business as a leader in your industry.\n<br>\n<br>In conclusion, creative <a href=\"https://salazardigital.com/fremont-web-design/\" class=\"text-primary\">web design Fremont</a> is a game-changer in the world of online presence. It's not just about making a website look pretty; it's about creating an immersive and unforgettable online journey for your audience. If you're looking to make a bold statement in the digital realm, creative web design is the way to go.&nbsp;<br></p>\n              </div>\n            </div>\n            \n            \n            \n          </div>\n          <div mbr-buttons mbr-theme-style=\"display-7\" class=\"mbr-section-btn\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\">\n            <a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">Start Now</a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>",
+          "_cid": "tP9P4MfGLA",
+          "_anchor": "article07-m",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
           "_params": {}
         },
         {
-          "_customTemplate": true,
-          "_afterNavbarItem": false,
-          "_customHTML": "<!-- Type valid HTML here -->\n\n<div>\n    <iframe src=\"INSERT URL\" style=\"border:0px #ffffff none;\" name=\"myiFrame\" scrolling=\"yes\" frameborder=\"1\" marginheight=\"0px\" marginwidth=\"0px\" height=\"400px\" width=\"600px\" allowfullscreen=\"\"></iframe>\n</div>",
-          "_customCSS": "/* Type valid CSS here */\n\ndiv {\n  padding: 80px 0;\n  color: #777;\n  text-align: center;\n}\np {\n  font-size: 60px;\n  color: #777;\n}",
-          "alias": "code-editor",
-          "_tags": [
-            "Extension"
-          ],
-          "_name": "pro.custom-html",
-          "_sourceTheme": "startm5",
-          "_JSplaceholders": [],
-          "_PHPplaceholders": [],
-          "_params": {},
-          "_anchor": "custom-html-6"
-        },
-        {
           "_name": "image3",
           "_sourceTheme": "mobirise5",
-          "_customHTML": "<section data-bs-version=\"5.1\" class=\"image3\" group=\"Images & Videos\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{'mbr-fullscreen': fullScreen,\n                    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"6\"\n            condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"6\"\n            condition=\"fullScreen == false\">\n        <input type=\"range\" name=\"textWidth\" title=\"Image\" min=\"4\" max=\"12\" step=\"1\" value=\"10\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n            <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value=\"../_images/background13.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\"\n            condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\"\n            condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\"\n        mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-12 col-lg-{{textWidth}}\">\n                <div class=\"image-wrapper\">\n                    <img src=\"../_images/hightlights/6.jpg\" alt=\"Mobirise Website Builder\">\n                    <p class=\"mbr-description mbr-fonts-style mt-2 align-center\" mbr-theme-style=\"display-4\"\n                        mbr-if=\"showText\" data-app-selector=\".mbr-description\">\n                        Image Description</p>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"image3\" group=\"Images & Videos\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{'mbr-fullscreen': fullScreen,\n                    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" name=\"textWidth\" title=\"Image\" min=\"4\" max=\"12\" step=\"1\" value=\"10\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n            <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value=\"../_images/background13.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-12 col-lg-{{textWidth}}\">\n                <div class=\"image-wrapper\">\n                    <img src=\"https://lh3.googleusercontent.com/p/AF1QipNr8lX6VhH2KMwey9kTWEQRK8Btv33s7fxYB4_2=s680-w680-h510\" alt=\"Mobirise Website Builder\">\n                    \n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_styles": {
             "& when not (@fullScreen)": {
               "padding-top": "(@paddingTop * 1rem)",
@@ -628,11 +654,13 @@
             }
           },
           "_cid": "tOYdGS29hQ",
+          "_anchor": "image3-i",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {},
-          "_anchor": "image3-i"
+          "_params": {}
         },
         {
           "alias": false,
@@ -668,11 +696,11 @@
           "_sourceTheme": "startm5",
           "_customHTML": "<section data-bs-version=\"5.1\" class=\"video03\" group=\"Images & Videos\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" plugins=\"PlayerVimeo\" mbr-class=\"{'mbr-parallax-background': bg.parallax}\">\n  <mbr-parameters>\n    <header>Size</header>\n    <input type=\"checkbox\" name=\"fullWidth\" title=\"Full Width\">\n\t\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"6\">\n\t\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"6\">\n    <input type=\"range\" name=\"videoWidth\" title=\"Video\" min=\"4\" max=\"12\" step=\"1\" value=\"9\">\n\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n    <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" parallax>\n      <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n      <input type=\"color\" title=\"Color\" value=\"#edefeb\" selected>\n      <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n    </fieldset>\n    <header condition=\"bg.type === 'video'\">Fallback Image</header>\n    <input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\">\n  </mbr-parameters>\n\n  <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n  <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n  <div class=\"text-center\" mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n    <div class=\"row justify-content-center\">\n      <div mbr-video class=\"mbr-figure col-12 mb-5 col-md-{{videoWidth}}\">\n        <iframe src=\"https://www.youtube.com/watch?v=7cHvqBD0sj8&loop=1&autoplay=1\"></iframe>\n      </div>\n    </div>\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-12 content-text\">\n        <h5 class=\"mbr-section-title mbr-fonts-style mb-4\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\">\n          <b>Watch Above Video</b></h5>\n        <p class=\"mbr-text mbr-fonts-style mb-4\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n          Unleash your creativity and sew your way to endless possibilities.\n        </p>\n        <div mbr-buttons mbr-theme-style=\"display-7\" class=\"mbr-section-btn mt-4\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">Download now</a></div>\n      </div>\n    </div>\n  </div>\n</section>",
           "_cid": "tOYdXPRipX",
+          "_anchor": "video03-j",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {},
-          "_anchor": "video03-j"
+          "_params": {}
         },
         {
           "_name": "map1",
@@ -731,27 +759,11 @@
             }
           },
           "_cid": "tOYc62oJ26",
+          "_anchor": "map1-g",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {},
-          "_anchor": "map1-g"
-        },
-        {
-          "_customTemplate": true,
-          "_afterNavbarItem": false,
-          "_customHTML": "<!-- Type valid HTML here -->\n\n<div>\n    <h2 class=\"display-1\">INSERT BRAND NAME</h2>\n    INSERT GMB MAP EMBED\n    <p class=\"display-3\">INSERT GMB NAME</p>\n    <p class=\"display-3\">INSERT GMB ADDRESS</p>\n    <p class=\"display-3\">INSERT GMB PHONE NUMBER</p>\n</div>",
-          "_customCSS": "/* Type valid CSS here */\n\ndiv {\n  padding: 80px 0;\n  color: #777;\n  text-align: center;\n}\np {\n  font-size: 60px;\n  color: #777;\n}",
-          "alias": "code-editor",
-          "_tags": [
-            "Extension"
-          ],
-          "_name": "pro.custom-html",
-          "_sourceTheme": "startm5",
-          "_JSplaceholders": [],
-          "_PHPplaceholders": [],
-          "_params": {},
-          "_anchor": "custom-html-a"
+          "_params": {}
         },
         {
           "_name": "footer1",
@@ -805,7 +817,7 @@
               "color": "#bbbbbb"
             }
           },
-          "_customHTML": "<section data-bs-version=\"5.1\" class=\"footer1 careerm5\" group=\"Footers\" global once=\"footers\" mbr-class=\"{'mbr-fullscreen': fullScreen, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Copyright\" name=\"showCopyright\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value>\n            <input type=\"color\" title=\"Color\" value=\"#232323\" selected>\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#232323\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row mbr-white\">\n            <div class=\"col-6 col-md-4 col-lg-3\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style mb-2\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>INSERT BRAND NAME</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Company Website:</li>\n                    <li class=\"mbr-text item-wrap\"><a href=\"#\" class=\"text-primary\" target=\"_blank\" rel=\"nofollow\">INSERT WEBSITE URL</a></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"col-6 col-md-4 col-lg-3\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style mb-2\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>Useful Links</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><span style=\"font-size: 1.1rem;\"><a href=\"#\" class=\"text-primary\" target=\"_blank\" rel=\"nofollow\">INSERT KEYWORD 1</a></span></li><li class=\"mbr-text item-wrap\"><span style=\"font-size: 1.1rem;\"><a href=\"#\" class=\"text-primary\" target=\"_blank\" rel=\"nofollow\">INSERT KEYWORD 2</a></span><br></li>\n                    <li class=\"mbr-text item-wrap\"><a href=\"#\" class=\"text-primary\" target=\"_blank\" rel=\"nofollow\">INSERT KEYWORD 3</a></li>\n                </ul>\n            </div>\n            <div class=\"col-6 col-md-4 col-lg-3\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style mb-2\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>Follow us on Social Media</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><a href=\"#\" class=\"text-primary\" target=\"_blank\" rel=\"nofollow\">INSERT KEYWORD 4</a></li>\n                    <li class=\"mbr-text item-wrap\"><a href=\"INSERT SOCIAL MEDIA 2\" class=\"text-primary\" target=\"_blank\" rel=\"nofollow\">INSERT KEYWORD 5</a></li>\n                    <li class=\"mbr-text item-wrap\"><a href=\"INSERT SOCIAL MEDIA 3\" class=\"text-primary\" target=\"_blank\" rel=\"nofollow\">INSERT KEYWORD 6</a></li><li class=\"mbr-text item-wrap\"><a href=\"INSERT SOCIAL MEDIA 4\" class=\"text-primary\" target=\"_blank\" rel=\"nofollow\">INSERT KEYWORD 7</a></li>\n                </ul>\n            </div>\n            <div class=\"col-6 col-md-4 col-lg-3\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style mb-2\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"col-12 mt-4\" mbr-if=\"showCopyright\">\n                <p class=\"mbr-text mb-0 mbr-fonts-style copyright align-center\" mbr-theme-style=\"display-7\" data-app-selector=\".copyright\" data-app-placeholder=\"Type Text\">\n                    \n                </p>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"footer1 careerm5\" group=\"Footers\" global once=\"footers\" mbr-class=\"{'mbr-fullscreen': fullScreen, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Copyright\" name=\"showCopyright\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value>\n            <input type=\"color\" title=\"Color\" value=\"#232323\" selected>\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#232323\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row mbr-white\">\n           \n            <div>\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style mb-2\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">Trusted Web Design&nbsp; Service In Fremont</h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><a href=\"https://salazardigital.com/fremont-web-design/\" class=\"text-primary\">https://salazardigital.com/fremont-web-design/</a></li>\n                </ul>\n            </div>\n           \n           \n            <div class=\"col-12 mt-4\" mbr-if=\"showCopyright\">\n                <p class=\"mbr-text mb-0 mbr-fonts-style copyright align-center\" mbr-theme-style=\"display-7\" data-app-selector=\".copyright\" data-app-placeholder=\"Type Text\">\n                    \n                </p>\n            </div>\n        </div>\n    </div>\n</section>",
           "_JSplaceholders": [],
           "_PHPplaceholders": [],
           "_anchor": "footer1-b",
@@ -815,21 +827,6 @@
           "_global": true,
           "_once": "footers",
           "_params": {}
-        },
-        {
-          "_customTemplate": true,
-          "_afterNavbarItem": false,
-          "_customHTML": "<!-- Type valid HTML here -->\n\n<div>\n    INSERT RSS CODE\n</div>",
-          "_customCSS": "/* Type valid CSS here */\n\ndiv {\n  padding: 80px 0;\n  color: #777;\n  text-align: center;\n}\np {\n  font-size: 60px;\n  color: #777;\n}",
-          "alias": "code-editor",
-          "_tags": [
-            "Extension"
-          ],
-          "_name": "pro.custom-html",
-          "_sourceTheme": "startm5",
-          "_anchor": "custom-html-c",
-          "_PHPplaceholders": [],
-          "_JSplaceholders": []
         }
       ]
     }
